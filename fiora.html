@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FIORA - LOL Champion</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  
+    <div class="container">
+        <body>
+            <div id="abc">
+              <nav>
+                <ul>
+                  <li><a href="aatrox.html">Aatrox</a></li>
+                  <li><a href="akali.html">Akali</a></li>
+                  <li><a href="fiora.html">Fiora</a></li>
+                </ul>
+              </nav>
+            </div>
+      <div class="sec1">
+        <div class="background-image">
+          <img src="./images/fiora/fiorabackground.png" alt="" />
+          <div class="caption">
+            <h5>THE GRAND DUELIST</h5>
+            <h1>FIORA</h1>
+            <p>
+              The most feared duelist in all Valoran, Fiora is as renowned for her brusque manner and cunning mind as she is for the speed of her bluesteel rapier. Born to House Laurent in the kingdom of Demacia, Fiora took control of the family from her father in the wake of a scandal that nearly destroyed them. House Laurent's reputation was sundered, but Fiora bends her every effort to restore her family's honor and return them to their rightful place among the great and good of Demacia.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--sec1-->
+
+      <div class="sec2">
+        <div class="abilities-wrapper">
+          <div class="abilities">
+            <h2>ABILITIES</h2>
+
+            <div class="ability-list">
+              <div id="p" class="ability-item active">
+                <img src="./images/fiora/fiorap.png" alt="" />
+              </div>
+              <div id="q" class="ability-item">
+                <img src="./images/fiora/fioraq.png" alt="" />
+              </div>
+              <div id="w" class="ability-item">
+                <img src="./images/fiora/fioraw.png" alt="" />
+              </div>
+              <div id="e" class="ability-item">
+                <img src="./images/fiora/fiorae.png" alt="" />
+              </div>
+              <div id="r" class="ability-item">
+                <img src="./images/fiora/fiorar.png" alt="" />
+              </div>
+            </div>
+
+            <div class="ability-info">
+              <p class="ability-info-type">PASSIVE</p>
+              <h6 class="ability-info-name">DUELIST'S DANCE</h6>
+              <p class="ability-info-desc">
+                Fiora has revealed a Vital on this Champion. If she hits the Vital, she restores Health and gains Move Speed.
+              </p>
+            </div>
+          </div>
+          <!--abilities-->
+
+          <video id="video" muted loop autoplay>
+            <source src="./videos/fiora/ability_0114_P1.webm" type="video/webm" />
+          </video>
+        </div>
+        <!--abilities-wrapper-->
+      </div>
+      <!--sec2-->
+    </div>
+    <!--container-->
+
+    <script>
+      const abilities = {
+        p: [
+          "./fiora/ability_0114_P1",
+          "PASSIVE",
+          "DUELIST'S DANCE",
+          "Fiora has revealed a Vital on this Champion. If she hits the Vital, she restores Health and gains Move Speed.",
+        ],
+        q: [
+          "./fiora/ability_0114_Q1",
+          "Q",
+          "LUNGE",
+          "Fiora lunges in a direction and stabs a nearby enemy, dealing physical damage and applying on-hit effects.",
+        ],
+        w: [
+          "./fiora/ability_0114_W1",
+          "W",
+          "RIPOSTE",
+          "Fiora parries all incoming damage and disables for a short time, then stabs in a direction. This stab slows the first enemy champion hit, or stuns them if Fiora blocked an immobilizing effect with this ability.",
+        ],
+        e: [
+          "./fiora/ability_0114_E1",
+          "E",
+          "BLADEWORK",
+          "Fiora has increased attack speed for the next two attacks. The first attack slows the target, and the second attack will critically strike.",
+        ],
+        r: [
+          "./fiora/ability_0114_R1",
+          "R",
+          "GRAND CHALLENGE",
+          "Fiora reveals all four Vitals on an enemy champion and gains Move Speed while near them. If Fiora hits all four Vitals or if the target dies after she has hit at least one, Fiora and her allies in the area are healed over the next few seconds.",
+        ],
+      };
+
+      document.querySelectorAll(".ability-item").forEach((e) => {
+        e.addEventListener("click", () => {
+          document.querySelectorAll(".ability-item").forEach((ele) => {
+            ele.classList.remove("active");
+          });
+
+          e.classList.add("active");
+
+          document.getElementById("video").style = "opacity: 0";
+          document.querySelector(".ability-info").style = "opacity: 0";
+
+          setTimeout(() => {
+            document.getElementById("video").src =
+              "./videos/" + abilities[e.id][0] + ".webm";
+            document.querySelector(".ability-info-type").innerHTML =
+              abilities[e.id][1];
+            document.querySelector(".ability-info-name").innerHTML =
+              abilities[e.id][2];
+            document.querySelector(".ability-info-desc").innerHTML =
+              abilities[e.id][3];
+
+            document.getElementById("video").style = "opacity: 1";
+            document.querySelector(".ability-info").style = "opacity: 1";
+          }, 250);
+        });
+      });
+    </script>
+  </body>
+</html>
