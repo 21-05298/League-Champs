@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AKALI - LOL Champion</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  
+    <div class="container">
+        <body>
+            <div id="abc">
+              <nav>
+                <ul>
+                  <li><a href="aatrox.html">Aatrox</a></li>
+                  <li><a href="akali.html">Akali</a></li>
+                  <li><a href="fiora.html">Fiora</a></li>
+                  
+                </ul>
+              </nav>
+            </div>
+      <div class="sec1">
+        <div class="background-image">
+          <img src="./images/akali/akalibackground.png" alt="" />
+          <div class="caption">
+            <h5>THE ROGUE ASSASSIN</h5>
+            <h1>AKALI</h1>
+            <p>
+              Abandoning the Kinkou Order and her title of the Fist of Shadow, Akali now strikes alone, ready to be the deadly weapon her people need. Though she holds onto all she learned from her master Shen, she has pledged to defend Ionia from its enemies, one kill at a time. Akali may strike in silence, but her message will be heard loud and clear: fear the assassin with no master.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--sec1-->
+
+      <div class="sec2">
+        <div class="abilities-wrapper">
+          <div class="abilities">
+            <h2>ABILITIES</h2>
+
+            <div class="ability-list">
+              <div id="p" class="ability-item active">
+                <img src="./images/akali/akalip.png" alt="" />
+              </div>
+              <div id="q" class="ability-item">
+                <img src="./images/akali/akaliq.png" alt="" />
+              </div>
+              <div id="w" class="ability-item">
+                <img src="./images/akali/akaliw.png" alt="" />
+              </div>
+              <div id="e" class="ability-item">
+                <img src="./images/akali/akalie.png" alt="" />
+              </div>
+              <div id="r" class="ability-item">
+                <img src="./images/akali/akalir.png" alt="" />
+              </div>
+            </div>
+
+            <div class="ability-info">
+              <p class="ability-info-type">PASSIVE</p>
+              <h6 class="ability-info-name">ASSASSIN'S MARK</h6>
+              <p class="ability-info-desc">
+                Dealing spell damage to a champion creates a ring of energy around them. Exiting that ring empowers Akali's next Attack with bonus range and damage.
+              </p>
+            </div>
+          </div>
+          <!--abilities-->
+
+          <video id="video" muted loop autoplay>
+            <source src="./videos/akali/ability_0084_P1.webm" type="video/webm" />
+          </video>
+        </div>
+        <!--abilities-wrapper-->
+      </div>
+      <!--sec2-->
+    </div>
+    <!--container-->
+
+    <script>
+      const abilities = {
+        p: [
+          "./akali/ability_0084_P1",
+          "PASSIVE",
+          "ASSASSIN'S MARK",
+          "Dealing spell damage to a champion creates a ring of energy around them. Exiting that ring empowers Akali's next Attack with bonus range and damage.",
+        ],
+        q: [
+          "./akali/ability_0084_Q1",
+          "Q",
+          "FIVE POINT STRIKE",
+          "Akali throws out five kunai, dealing damage based on her bonus Attack Damage and Ability Power and slowing.",
+        ],
+        w: [
+          "./akali/ability_0084_W1",
+          "W",
+          "TWILIGHT SHROUD",
+          "Akali drops a cover of smoke and briefly gains Move Speed. While inside the shroud, Akali becomes invisible and unable to be selected by enemy spells and attacks. Attacking or using abilities will briefly reveal her.",
+        ],
+        e: [
+          "./akali/ability_0084_E1",
+          "E",
+          "SHURIKEN FLIP",
+          "Flip backward and fire a shuriken forward, dealing magic damage. The first enemy or smoke cloud hit is marked. Re-cast to dash to the marked target, dealing additional damage.",
+        ],
+        r: [
+          "./akali/ability_0084_R1",
+          "R",
+          "PERFECT EXECUTION",
+          "Akali leaps in a direction, damaging enemies she strikes. Re-cast: Akali dashes in a direction, executing all enemies she strikes.",
+        ],
+      };
+
+      document.querySelectorAll(".ability-item").forEach((e) => {
+        e.addEventListener("click", () => {
+          document.querySelectorAll(".ability-item").forEach((ele) => {
+            ele.classList.remove("active");
+          });
+
+          e.classList.add("active");
+
+          document.getElementById("video").style = "opacity: 0";
+          document.querySelector(".ability-info").style = "opacity: 0";
+
+          setTimeout(() => {
+            document.getElementById("video").src =
+              "./videos/" + abilities[e.id][0] + ".webm";
+            document.querySelector(".ability-info-type").innerHTML =
+              abilities[e.id][1];
+            document.querySelector(".ability-info-name").innerHTML =
+              abilities[e.id][2];
+            document.querySelector(".ability-info-desc").innerHTML =
+              abilities[e.id][3];
+
+            document.getElementById("video").style = "opacity: 1";
+            document.querySelector(".ability-info").style = "opacity: 1";
+          }, 250);
+        });
+      });
+    </script>
+  </body>
+</html>
