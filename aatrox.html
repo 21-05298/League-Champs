@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AATROX - LOL Champion</title>
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  
+    <div class="container">
+        <body>
+            <div id="abc">
+              <nav>
+                <ul>
+                  <li><a href="aatrox.html">Aatrox</a></li>
+                  <li><a href="akali.html">Akali</a></li>
+                  <li><a href="fiora.html">Fiora</a></li>
+                  
+                </ul>
+              </nav>
+            </div>
+      <div class="sec1">
+        <div class="background-image">
+          <img src="./images/aatrox/aatroxbackground.png" alt="" />
+          <div class="caption">
+            <h5>THE DARKIN BLADE</h5>
+            <h1>AATROX</h1>
+            <p>
+              Once honored defenders of Shurima against the Void, Aatrox and his
+              brethren would eventually become an even greater threat to
+              Runeterra, and were defeated only by cunning mortal sorcery. But
+              after centuries of imprisonment, Aatrox was the first to find
+              freedom once more, corrupting and transforming those foolish
+              enough to try and wield the magical weapon that contained his
+              essence. Now, with stolen flesh, he walks Runeterra in a brutal
+              approximation of his previous form, seeking an apocalyptic and
+              long overdue vengeance.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--sec1-->
+
+      <div class="sec2">
+        <div class="abilities-wrapper">
+          <div class="abilities">
+            <h2>ABILITIES</h2>
+
+            <div class="ability-list">
+              <div id="p" class="ability-item active">
+                <img src="./images/aatrox/Aatrox_Passive.png" alt="" />
+              </div>
+              <div id="q" class="ability-item">
+                <img src="./images/aatrox/AatroxQ.png" alt="" />
+              </div>
+              <div id="w" class="ability-item">
+                <img src="./images/aatrox/AatroxW.png" alt="" />
+              </div>
+              <div id="e" class="ability-item">
+                <img src="./images/aatrox/AatroxE.png" alt="" />
+              </div>
+              <div id="r" class="ability-item">
+                <img src="./images/aatrox/AatroxR.png" alt="" />
+              </div>
+            </div>
+
+            <div class="ability-info">
+              <p class="ability-info-type">PASSIVE</p>
+              <h6 class="ability-info-name">DEATHBRINGER STANCE</h6>
+              <p class="ability-info-desc">
+                Periodically, Aatrox's next basic attack deals bonus physical
+                damage and heals him, based on the target's max health.
+              </p>
+            </div>
+          </div>
+          <!--abilities-->
+
+          <video id="video" muted loop autoplay>
+            <source src="./videos/aatrox/ability_0266_P.webm" type="video/webm" />
+          </video>
+        </div>
+        <!--abilities-wrapper-->
+      </div>
+      <!--sec2-->
+    </div>
+    <!--container-->
+
+    <script>
+      const abilities = {
+        p: [
+          "./aatrox/ability_0266_P",
+          "PASSIVE",
+          "DEATHBRINGER STANCE",
+          "Periodically, Aatrox's next basic attack deals bonus physical damage and heals him, based on the target's max health.",
+        ],
+        q: [
+          "./aatrox/ability_0266_Q",
+          "Q",
+          "THE DARKIN BLADE",
+          "Aatrox slams his greatsword down, dealing physical damage. He can swing three times, each with a different area of effect.",
+        ],
+        w: [
+          "./aatrox/ability_0266_W",
+          "W",
+          "INFERNAL CHAINS",
+          "Aatrox smashes the ground, dealing damage to the first enemy hit. Champions and large monsters have to leave the impact area quickly or they will be dragged to the center and take the damage again.",
+        ],
+        e: [
+          "./aatrox/ability_0266_E",
+          "E",
+          "UMBRAL DASH",
+          "Passively, Aatrox heals when damaging enemy champions. On activation, he dashes in a direction.",
+        ],
+        r: [
+          "./aatrox/ability_0266_R",
+          "R",
+          "WORLD ENDER",
+          "Aatrox unleashes his demonic form, fearing nearby enemy minions and gaining attack damage, increased healing, and Move Speed. If he gets a takedown, this effect is extended.",
+        ],
+      };
+
+      document.querySelectorAll(".ability-item").forEach((e) => {
+        e.addEventListener("click", () => {
+          document.querySelectorAll(".ability-item").forEach((ele) => {
+            ele.classList.remove("active");
+          });
+
+          e.classList.add("active");
+
+          document.getElementById("video").style = "opacity: 0";
+          document.querySelector(".ability-info").style = "opacity: 0";
+
+          setTimeout(() => {
+            document.getElementById("video").src =
+              "./videos/" + abilities[e.id][0] + ".webm";
+            document.querySelector(".ability-info-type").innerHTML =
+              abilities[e.id][1];
+            document.querySelector(".ability-info-name").innerHTML =
+              abilities[e.id][2];
+            document.querySelector(".ability-info-desc").innerHTML =
+              abilities[e.id][3];
+
+            document.getElementById("video").style = "opacity: 1";
+            document.querySelector(".ability-info").style = "opacity: 1";
+          }, 250);
+        });
+      });
+    </script>
+  </body>
+</html>
 
